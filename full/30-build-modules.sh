@@ -1,7 +1,9 @@
 # Build modules from source.
 
-if [ -d "${DATADIR}/modules" ]; then
-    cd "${DATADIR}/modules" || exit 11
+MODULE_DIR="${MODULE_DIR:-${DATADIR}/modules}"
+
+if [ -d "${MODULE_DIR}" ]; then
+    cd "${MODULE_DIR}" || exit 11
 
     # Find module sources.
     modules=$(find . -name "*.cpp")
@@ -14,4 +16,3 @@ if [ -d "${DATADIR}/modules" ]; then
 
     cd /
 fi
-
